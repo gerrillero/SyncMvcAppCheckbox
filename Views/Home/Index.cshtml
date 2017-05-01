@@ -1,0 +1,26 @@
+@using SyncMvcAppCheckbox.Models
+@model TestViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-12">
+
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { id = Model.Id }))
+        {
+            @Html.AntiForgeryToken()
+            <br />
+            @Html.EJ().CheckBox("IsChecked1").Text("IsChecked1").Checked(Model.IsChecked1).Size(Size.Medium)
+            <br />
+            @Html.EJ().CheckBox("IsChecked2").Text("IsChecked2").Checked(Model.IsChecked2).Size(Size.Medium)
+            <br />
+            @Html.EJ().CheckBox("IsChecked3").Text("IsChecked3").Checked(Model.IsChecked3).Size(Size.Medium)
+            <br />
+            <br />
+            <input type="submit" class="btn btn-primary" value="Save" />
+        }
+
+    </div>
+</div>
